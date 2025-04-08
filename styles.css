@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.player {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.player-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.player-header h1 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+}
+
+#youtube-player {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.loading-indicator i {
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+.loading-indicator span {
+    font-size: 14px;
+}
+
+#youtube-player.ready .loading-indicator {
+    display: none;
+}
+
+#local-player, #audio-player {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#local-player, #audio-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: #000;
+}
+
+#audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234CAF50" width="120" height="120"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>') center center no-repeat;
+    background-color: #1a1a1a;
+}
+
+.controls {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.progress-container {
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #4CAF50;
+    border-radius: 3px;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+}
+
+.play-btn {
+    background: #4CAF50;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-footer {
+    margin-top: 20px;
+}
+
+.source-switcher {
+    display: flex;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.source-btn {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.source-btn.active {
+    background: #4CAF50;
+    color: white;
+}
+
+.url-input {
+    display: flex;
+    gap: 10px;
+}
+
+#youtube-url {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#youtube-url::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.file-input {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.file-input input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-formats {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.load-btn {
+    background: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s;
+}
+
+.load-btn:hover {
+    background: #45a049;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .player {
+        padding: 15px;
+    }
+    
+    .control-buttons {
+        gap: 15px;
+    }
+    
+    .play-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+} 
