@@ -1,24 +1,13 @@
-# Elegant Media Player
-
-A modern and elegant web-based media player that supports both YouTube videos and local media files with a beautiful user interface.
+A Simple web-based media player that supports both YouTube videos and local media files with a beautiful user interface.
 
 ## Features
 
-- Play YouTube videos by entering the URL
 - Play local audio and video files
 - Supports various formats: MP3, MP4, WebM, OGG, WAV, TS and more
-- Clean and modern UI with glassmorphism design
 - Play/Pause functionality
 - Forward/Backward controls (10 seconds)
 - Progress bar with time display
 - Responsive design for all screen sizes
-
-## How to Use
-
-### YouTube Videos
-1. Make sure the "YouTube" tab is selected
-2. Enter a YouTube video URL in the input field
-3. Click the "Load" button to start playing
 
 ### Local Media Files
 1. Click the "Local File" tab
@@ -51,7 +40,6 @@ Use the control buttons to:
 ## Technical Details
 
 - Built with HTML5, CSS3, and JavaScript
-- Uses YouTube IFrame API for YouTube video playback
 - Uses HTML5 audio and video APIs for local file playback
 - No external dependencies except for Font Awesome icons
 - Responsive design that works on all devices
@@ -62,7 +50,3 @@ The player works on all modern browsers that support:
 - HTML5 Audio and Video
 - CSS3
 - JavaScript ES6+
-
-## Note
-
-YouTube playback requires an internet connection. Local file playback works offline. 
